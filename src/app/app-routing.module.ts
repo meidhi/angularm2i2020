@@ -1,15 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, Router } from '@angular/router';
+import { Routes, RouterModule, Router, PreloadAllModules } from '@angular/router';
 import { PageLoginComponent } from './login/pages/page-login/page-login.component';
-import { PageListOrdersComponent } from './orders/pages/page-list-orders/page-list-orders.component';
-import { PageListClientComponent } from './clients/pages/page-list-client/page-list-client.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch:'full' },
-  { path: 'login', component: PageLoginComponent },
-  // { path: 'orders', component: PageListOrdersComponent },
-  // { path: 'clients', component: PageListClientComponent },
   {
     path: 'orders',
     loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule)
@@ -25,7 +20,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
