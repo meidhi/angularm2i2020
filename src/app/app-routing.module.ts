@@ -8,9 +8,20 @@ import { PageListClientComponent } from './clients/pages/page-list-client/page-l
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch:'full' },
   { path: 'login', component: PageLoginComponent },
-  { path: 'orders', component: PageListOrdersComponent },
-  { path: 'clients', component: PageListClientComponent },
-
+  // { path: 'orders', component: PageListOrdersComponent },
+  // { path: 'clients', component: PageListClientComponent },
+  {
+    path: 'orders',
+    loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule)
+  },
+  {
+    path: 'clients',
+    loadChildren: () => import('./clients/clients.module').then(m => m.ClientsModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
+  }
 ];
 
 @NgModule({
