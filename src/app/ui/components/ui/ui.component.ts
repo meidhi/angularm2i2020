@@ -15,7 +15,5 @@ export class UiComponent implements OnInit {
 
   public toggle() {
     this.open = !this.open;
-    console.log(this.open);
   }
-
 }
