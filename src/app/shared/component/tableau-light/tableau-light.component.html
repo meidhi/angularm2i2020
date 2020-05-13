@@ -1,4 +1,6 @@
-<table class="table">
+
+<!-- {{ collection | json }} -->
+  <table class="table">
   <thead>
     <tr>
       <th scope="col">Type</th>
@@ -15,9 +17,9 @@
       <th>{{ item.typePresta }}</th>
       <th>{{ item.client }}</th>
       <th>{{ item.nbJours }}</th>
-      <th>{{ item.tjmHt }}</th>
-      <th>{{ item.totalHt() }}</th>
-      <th>{{ item.totalTtc() }}</th>
+      <th>{{ item.tjmHt | currency:'EUR'}}</th>
+      <th>{{ item | total | currency:'EUR' }}</th>
+      <th>{{ item | total:'ht' | currency:'EUR' }}</th>
       <th>{{ item.state }}</th>
 
     </tr>

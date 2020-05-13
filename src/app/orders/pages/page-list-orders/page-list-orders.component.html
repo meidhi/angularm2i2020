@@ -1,4 +1,5 @@
 <app-template-b [title]="title" [subtitle]="subtitle">
 
-  <app-tableau-light [collection]= "collection"></app-tableau-light>
+  <!-- <app-tableau-light [collection]= "collection"></app-tableau-light> -->
+  <app-tableau-light *ngIf="collection" [collection]= "collection"></app-tableau-light>
 </app-template-b>
