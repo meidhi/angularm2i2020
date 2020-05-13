@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges, Pipe } from '@angular/core';
-import { Order } from '../../models/order';
+// import { Order } from '../../models/order';
 
 @Component({
   selector: 'app-tableau-light',
@@ -7,7 +7,8 @@ import { Order } from '../../models/order';
   styleUrls: ['./tableau-light.component.scss']
 })
 export class TableauLightComponent implements OnInit, OnChanges {
-@Input() collection: Order[];
+// @Input() collection: Order[];
+@Input() headers: string[];
   constructor() {
     // json  new Pipe();
   }

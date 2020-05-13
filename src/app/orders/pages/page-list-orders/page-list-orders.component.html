@@ -1,5 +1,15 @@
-<app-template-b [title]="title" [subtitle]="subtitle">
+<app-template-b  [title]="title" [subtitle]="subtitle">
 
   <!-- <app-tableau-light [collection]= "collection"></app-tableau-light> -->
-  <app-tableau-light *ngIf="collection" [collection]= "collection"></app-tableau-light>
+  <app-tableau-dark *ngIf="collection$ | async as collection"  [headers] = "headers">
+    <tr *ngFor="let item of collection">
+      <th>{{ item.typePresta }}</th>
+      <th>{{ item.client }}</th>
+      <th>{{ item.nbJours }}</th>
+      <th>{{ item.tjmHt | currency:'EUR'}}</th>
+      <th>{{ item | total | currency:'EUR' }}</th>
+      <th>{{ item | total:'ht' | currency:'EUR' }}</th>
+      <th>{{ item.state }}</th>
+    </tr>
+  </app-tableau-dark>
 </app-template-b>

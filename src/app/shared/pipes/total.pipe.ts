@@ -9,7 +9,7 @@ export class TotalPipe implements PipeTransform {
 
     if(value){
       if(args.length > 0){
-        return value.totalHt();
+        return value.totalTtc();
       }
       return value.totalHt();
     }
