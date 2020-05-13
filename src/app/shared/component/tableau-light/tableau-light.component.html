@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Type</th>
+      <th scope="col">Client</th>
+      <th scope="col">NbJours</th>
+      <th scope="col">TjmHt</th>
+      <th scope="col">total Ht</th>
+      <th scope="col">total  Ttc</th>
+      <th scope="col">State</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of collection">
+      <th>{{ item.typePresta }}</th>
+      <th>{{ item.client }}</th>
+      <th>{{ item.nbJours }}</th>
+      <th>{{ item.tjmHt }}</th>
+      <th>{{ item.totalHt() }}</th>
+      <th>{{ item.totalTtc() }}</th>
+      <th>{{ item.state }}</th>
+
+    </tr>
+  </tbody>
+</table>
