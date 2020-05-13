@@ -8,6 +8,7 @@ import { LoginModule } from './login/login.module';
 import { TextModule } from './text/text.module';
 import { UiModule } from './ui/ui.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     LoginModule,
     AppRoutingModule,
     UiModule,
