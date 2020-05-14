@@ -17,6 +17,9 @@
   .state-actif {
     background: $color-success;
   }
+  .icon-group{
+    flex: 10px;
+  }
 }
 app-template-a .table-dark .state-option {
   background: $color1;

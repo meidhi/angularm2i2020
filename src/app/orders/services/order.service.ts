@@ -13,11 +13,13 @@ import { StateOrder } from 'src/app/shared/enums/state-order.enum';
 })
 
 export class OrderService {
+
   private pCollection: Observable<Order[]>;
   private urlApi = environment.urlApi;
 
   constructor(private http: HttpClient) {
-
+    // this.pCollection = this.http.get<Order[]>(`${this.urlApi}orders`) SI CALCUL DE TTC ET HT DANS METHODE
+    // ou
     this.pCollection = this.http.get<Order[]>(`${this.urlApi}orders`).pipe(
       map((tab) => {
         return tab.map((obj) => {
@@ -43,6 +45,10 @@ export class OrderService {
 
   update(item: Order): Observable<Order>{
     return this.http.put<Order>(`${this.urlApi}orders/${item.id}`, item);
+  }
+
+  delete(item: Order):Observable<Order>{
+    return  this.http.delete<Order>(`${this.urlApi}orders/${item.id}`);
   }
 
 }

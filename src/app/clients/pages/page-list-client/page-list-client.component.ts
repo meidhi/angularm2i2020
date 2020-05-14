@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from 'src/app/shared/models/client';
 import { ClientI } from 'src/app/shared/interfaces/client-i';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { ClientService } from '../../services/client.service';
 import { StateClient } from 'src/app/shared/enums/state-client.enum';
 
@@ -12,7 +12,7 @@ import { StateClient } from 'src/app/shared/enums/state-client.enum';
 })
 
 export class PageListClientComponent implements OnInit {
-  public collection$: Observable<Client[]>;
+  public collection$: Subject<Client[]> = new Subject();
   public collection: Client[];
   public title: string;
   public headers: string[];
@@ -30,10 +30,14 @@ export class PageListClientComponent implements OnInit {
     this.headers = [
       "Name",
       "Ca",
-      "State"
+      "State",
+      "Action"
     ];
     // });
-    this.collection$ = this.os.collection;
+    // this.collection$ = this.os.collection;
+    this.os.collection.subscribe((datas) => {
+      this.collection$.next(datas);
+    });
   }
   public changeState(item: Client, event) {
     this.os.changeState(item, event.target.value).subscribe((res) => {
@@ -41,4 +45,15 @@ export class PageListClientComponent implements OnInit {
       item.state = res.state;
     });
   }
+
+  public delete(item: Client){
+    this.os.delete(item).subscribe((res) => {
+      // traiter res de l'api;
+      this.os.collection.subscribe((datas) => {
+        this.collection$.next(datas);
+      });
+    });
+  }
+
+
 }

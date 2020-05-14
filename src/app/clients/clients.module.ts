@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { ClientsRoutingModule } from './clients-routing.module';
 import { PageListClientComponent } from './pages/page-list-client/page-list-client.component';
+import { IconsModule } from '../icons/icons.module';
 
 
 
@@ -11,7 +12,8 @@ import { PageListClientComponent } from './pages/page-list-client/page-list-clie
   imports: [
     CommonModule,
     ClientsRoutingModule,
-    SharedModule
+    SharedModule,
+    IconsModule
   ]
 })
 export class ClientsModule { }
