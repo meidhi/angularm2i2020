@@ -10,7 +10,8 @@
       <td>{{ item | total | currency:'EUR' }}</td>
       <td>{{ item | total:'ht' | currency:'EUR' }}</td>
       <!-- <td>{{ item.state }}</td> -->
-      <td>
+      <!-- <td [ngClass]="{'state-cancel': 'Cancel' === item.state, 'state-option': 'Option' === item.state, 'state-confirmed': 'Confirmed' === item.state}"> -->
+      <td [appState]= "item.state">
         <select (change)="changeState(item, $event)">
           <option *ngFor="let state of states" [value]="state" [selected]="state === item.state">
             {{ state }}

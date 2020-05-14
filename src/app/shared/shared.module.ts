@@ -5,12 +5,13 @@ import { TableauLightComponent } from './component/tableau-light/tableau-light.c
 import { ButtonComponent } from './component/button/button.component';
 import { TotalPipe } from './pipes/total.pipe';
 import { TableauDarkComponent } from './component/tableau-dark/tableau-dark.component';
+import { StateDirective } from './directives/state.directive';
 
 
 
 @NgModule({
-  declarations: [TableauLightComponent, ButtonComponent, TotalPipe, TableauDarkComponent],
-  exports: [TemplatesModule, TableauLightComponent, ButtonComponent, TotalPipe, TableauDarkComponent],
+  declarations: [TableauLightComponent, ButtonComponent, TotalPipe, TableauDarkComponent, StateDirective],
+  exports: [TemplatesModule, TableauLightComponent, ButtonComponent, TotalPipe, TableauDarkComponent, StateDirective],
   imports: [
     CommonModule,
     TemplatesModule
