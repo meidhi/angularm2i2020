@@ -4,5 +4,5 @@ export interface ClientI {
   "id": number;
   "name": string;
   "ca": number;
-  "state": StateClient.ACTIF
+  "state": StateClient
 }

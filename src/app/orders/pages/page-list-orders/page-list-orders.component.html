@@ -1,7 +1,7 @@
-<app-template-b [title]="title" [subtitle]="subtitle">
+<app-template-a [title]="title" [subtitle]="subtitle">
 
   <!-- <app-tableau-light [collection]= "collection"></app-tableau-light> -->
-  <app-tableau-light *ngIf="collection$ | async as collection" [headers]="headers">
+  <app-tableau-dark *ngIf="collection$ | async as collection" [headers]="headers">
     <tr *ngFor="let item of collection">
       <td>{{ item.typePresta }}</td>
       <td>{{ item.client }}</td>
@@ -19,6 +19,6 @@
         </select>
       </td>
     </tr>
-  </app-tableau-light>
+  </app-tableau-dark>
 
-</app-template-b>
+</app-template-a>

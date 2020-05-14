@@ -3,10 +3,15 @@
   <!-- <app-tableau-light [collection]= "collection"></app-tableau-light> -->
   <app-tableau-dark *ngIf="collection$ | async as collection" [headers]="headers">
     <tr *ngFor="let item of collection">
-      <th hidden>{{ item.id }}</th>
-      <th>{{ item.name }}</th>
-      <th>{{ item.ca }}</th>
-      <th>{{ item.state }}</th>
+      <td>{{ item.name }}</td>
+      <td>{{ item.ca }}</td>
+      <td [appState]= "item.state">
+        <select (change)="changeState(item, $event)">
+          <option *ngFor="let state of states" [value]="state" [selected]="state === item.state">
+            {{ state }}
+          </option>
+        </select>
+      </td>
     </tr>
   </app-tableau-dark>
 </app-template-a>

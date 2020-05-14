@@ -6,7 +6,7 @@ import { Directive, Input, HostBinding, OnInit, OnChanges } from '@angular/core'
 export class StateDirective implements  OnChanges {
 
   @Input() appState: any;
-@HostBinding('class') nomClass: string;
+  @HostBinding('class') nomClass: string;
 
   constructor() {
     console.log("call")

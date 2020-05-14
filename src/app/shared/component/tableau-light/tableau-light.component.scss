@@ -1,0 +1,33 @@
+@import "theme";
+
+.tableau-light {
+  .state-cancel {
+    background: $color-error;
+  }
+  .state-option {
+    background: $color3;
+  }
+  .state-confirmed {
+    background: $color-success;
+  }
+  .state-inactif {
+    background: $color-error;
+  }
+  .state-actif {
+    background: $color-success;
+  }
+}
+app-template-a .tableau-light .state-option {
+  background: $color1;
+}
+
+app-template-b .tableau-light .state-option {
+  background: $color2;
+}
+
+app-template-a .tableau-light .state-inactif {
+  background: $color2;
+}
+app-template-b .tableau-light .state-inactif {
+  background: $color2;
+}
