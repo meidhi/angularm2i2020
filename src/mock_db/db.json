@@ -4,7 +4,7 @@
       "tjmHt": 1200,
       "nbJours": 10,
       "tva": 20,
-      "state": "Confirmé",
+      "state": "Cancel",
       "id": 1,
       "typePresta": "Coaching",
       "client": "Modis",
@@ -19,7 +19,8 @@
       "client": "Capgemini",
       "comment": "merci cap",
       "id": 2
-    },    {
+    },
+    {
       "tjmHt": 1331,
       "nbJours": 13,
       "tva": 13,
@@ -42,10 +43,10 @@
   ],
   "clients": [
     {
+      "state": "Inactif",
       "id": 1,
       "name": "Christophe",
-      "ca": 12000,
-      "state": "Actif"
+      "ca": 12000
     },
     {
       "id": 2,

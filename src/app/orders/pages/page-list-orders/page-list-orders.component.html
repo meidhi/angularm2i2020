@@ -1,4 +1,4 @@
-<app-template-a [title]="title" [subtitle]="subtitle">
+<app-template-b [title]="title" [subtitle]="subtitle">
 
   <!-- <app-tableau-light [collection]= "collection"></app-tableau-light> -->
   <app-tableau-dark *ngIf="collection$ | async as collection" [headers]="headers">
@@ -29,4 +29,9 @@
   <app-button [text]="btnHref.text" [href]="btnHref.href"></app-button>
   <app-button [text]="btnAction.text" [action]="btnAction.action" (clicked)="openPopPup()"></app-button>
 
-</app-template-a>
+  <app-text [page]="true">
+  <h1>test 1</h1>
+  <h2>test 2</h2>
+</app-text>
+
+</app-template-b>
