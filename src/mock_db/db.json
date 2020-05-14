@@ -4,7 +4,7 @@
       "tjmHt": 1200,
       "nbJours": 10,
       "tva": 20,
-      "state": "Confirmed",
+      "state": "Cancel",
       "id": 1,
       "typePresta": "Coaching",
       "client": "Modis",
@@ -36,7 +36,7 @@
       "id": 1,
       "name": "Christophe",
       "ca": 12000,
-      "state": "Actif"
+      "state": "Inactif"
     },
     {
       "id": 2,

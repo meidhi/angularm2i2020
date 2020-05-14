@@ -6,6 +6,7 @@ import { ButtonComponent } from './component/button/button.component';
 import { TotalPipe } from './pipes/total.pipe';
 import { TableauDarkComponent } from './component/tableau-dark/tableau-dark.component';
 import { StateDirective } from './directives/state.directive';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,7 +15,8 @@ import { StateDirective } from './directives/state.directive';
   exports: [TemplatesModule, TableauLightComponent, ButtonComponent, TotalPipe, TableauDarkComponent, StateDirective],
   imports: [
     CommonModule,
-    TemplatesModule
+    TemplatesModule,
+    RouterModule
   ]
 })
 export class SharedModule { }

@@ -7,6 +7,7 @@ import { Client } from 'src/app/shared/models/client';
 import { environment } from 'src/environments/environment';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +17,7 @@ export class ClientService {
   private urlApi = environment.urlApi;
 
   constructor(private http: HttpClient) {
+
     this.pCollection = this.http.get<Client[]>(`${this.urlApi}clients`).pipe(
       map((tab) => {
         return tab.map((obj) => {
@@ -35,7 +37,7 @@ export class ClientService {
 
   public changeState(item: Client, state: StateClient): Observable<Client> {
     const obj = new Client({...item});
-    // obj.state = state;
+    obj.state = state;
     return this.update(obj);
   }
 
