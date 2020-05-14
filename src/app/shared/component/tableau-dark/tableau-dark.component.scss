@@ -28,8 +28,8 @@ app-template-b .table-dark .state-option {
 
 
 app-template-a .table-dark .state-inactif {
-  background: $color1;
+  background: $color-error;
 }
-app-template-b .table-dark .state-inactif {
-  background: $color2;
+app-template-b .table-dark .state-actif {
+  background: $color-success;
 }

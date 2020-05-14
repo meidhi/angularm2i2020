@@ -26,8 +26,8 @@ app-template-b .tableau-light .state-option {
 }
 
 app-template-a .tableau-light .state-inactif {
-  background: $color2;
+  background: $color-error;
 }
-app-template-b .tableau-light .state-inactif {
-  background: $color2;
+app-template-b .tableau-light .state-actif {
+  background: $color-success;
 }

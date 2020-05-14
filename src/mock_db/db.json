@@ -4,7 +4,7 @@
       "tjmHt": 1200,
       "nbJours": 10,
       "tva": 20,
-      "state": "Cancel",
+      "state": "Confirmé",
       "id": 1,
       "typePresta": "Coaching",
       "client": "Modis",
@@ -19,12 +19,21 @@
       "client": "Capgemini",
       "comment": "merci cap",
       "id": 2
+    },    {
+      "tjmHt": 1331,
+      "nbJours": 13,
+      "tva": 13,
+      "state": "Option",
+      "typePresta": "coaching",
+      "client": "Capgemini",
+      "comment": "merci cap",
+      "id": 8
     },
     {
       "tjmHt": 1200,
       "nbJours": 1,
       "tva": 20,
-      "state": "Option",
+      "state": "Confirmé",
       "typePresta": "formation",
       "client": "Edugroupe",
       "comment": "merci edugroupe",
@@ -36,13 +45,13 @@
       "id": 1,
       "name": "Christophe",
       "ca": 12000,
-      "state": "Inactif"
+      "state": "Actif"
     },
     {
       "id": 2,
       "name": "Jeff",
       "ca": 22000,
-      "state": "Inactif"
+      "state": "Actif"
     }
   ]
 }

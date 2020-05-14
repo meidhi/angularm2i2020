@@ -4,6 +4,7 @@ import { Order } from 'src/app/shared/models/order';
 import { OrderService } from '../../services/order.service';
 
 import { StateOrder } from 'src/app/shared/enums/state-order.enum';
+import { Button } from 'src/app/shared/interfaces/button';
 
 @Component({
   selector: 'app-page-list-orders',
@@ -16,7 +17,11 @@ export class PageListOrdersComponent implements OnInit {
   public title: string;
   public headers: string[];
   public subtitle: string;
-  public states= Object.values(StateOrder);
+  public states = Object.values(StateOrder);
+
+  public btnRoute: Button;
+  public btnHref: Button;
+  public btnAction: Button;
 
   constructor(private os: OrderService) { }
 
@@ -24,6 +29,18 @@ export class PageListOrdersComponent implements OnInit {
     this.title = "Orders";
     this.subtitle = "All orders";
 
+    this.btnRoute = {
+      text: 'Add an order',
+      route: 'add'
+    };
+    this.btnHref = {
+      text: 'Google',
+      href: 'http://www.google.fr'
+    };
+    this.btnAction = {
+      text: 'Open popup',
+      action: true
+    };
 
     //   this.os.collection.subscribe((datas) => {
     //   this.collection = datas;
@@ -46,5 +63,8 @@ export class PageListOrdersComponent implements OnInit {
       // traite erreur
       item.state = res.state;
     });
+  }
+  public openPopPup(){
+    console.log('popup OK');
   }
 }
