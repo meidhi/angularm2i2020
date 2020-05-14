@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 
+
+
+
 // the second parameter 'fr-FR' is optional
 registerLocaleData(localeFr, 'fr-FR');
 @NgModule({
@@ -28,7 +31,9 @@ registerLocaleData(localeFr, 'fr-FR');
     IconsModule,
     TextModule,
     NgbModule,
-    IconsModule
+    IconsModule,
+
+
   ],
   providers: [{provide: LOCALE_ID, useValue: 'fr-FR' }] ,
   bootstrap: [AppComponent]
