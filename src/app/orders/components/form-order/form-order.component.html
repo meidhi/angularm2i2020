@@ -14,7 +14,6 @@
     <input formControlName="tva" type="text" class="form-control" id="tva">
   </div>
 
-
   <div class="form-group">
     <label for="state">State</label>
     <select formControlName="state" class="form-control" id="state">
@@ -22,7 +21,6 @@
       <option *ngFor="let state of States" [ngValue]="state">{{ state }}</option>
     </select>
   </div>
-
 
   <div class="form-group">
     <label for="typePresta">typePresta</label>
@@ -40,5 +38,5 @@
   </div>
 
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Submit</button>
 </form>

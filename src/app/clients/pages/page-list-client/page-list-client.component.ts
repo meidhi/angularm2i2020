@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Client } from 'src/app/shared/models/client';
 import { ClientI } from 'src/app/shared/interfaces/client-i';
 import { Observable, Subject } from 'rxjs';
 import { ClientService } from '../../services/client.service';
 import { StateClient } from 'src/app/shared/enums/state-client.enum';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Link } from 'src/app/shared/interfaces/link';
+import { Button } from 'src/app/shared/interfaces/button';
 
 @Component({
   selector: 'app-page-list-client',
@@ -17,43 +20,57 @@ export class PageListClientComponent implements OnInit {
   public title: string;
   public headers: string[];
   public subtitle: string;
-  public states= Object.values(StateClient);
+  public states = Object.values(StateClient);
+  public navLink: Link[];
+  public btnRoute: Button;
+  @Input() link
 
-  constructor(private os: ClientService) { }
+  constructor(
+    private cs: ClientService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.title = "Clients";
-    this.subtitle = "All clients";
-    //   this.os.collection.subscribe((datas) => {
-    //   this.collection = datas;
-    //   // console.log(datas);
+    // this.btnRoute = {texte: 'AddClient'};
+    this.navLink = [{ route: 'details', label: 'details' }, { route: 'comments', label: 'comments' }];
+    this.route.data.subscribe((datas) => {
+      // console.log(datas);
+      this.title = datas.title;
+      this.subtitle = datas.subtitle;
+    });
+
     this.headers = [
       "Name",
       "Ca",
       "State",
       "Action"
     ];
-    // });
-    // this.collection$ = this.os.collection;
-    this.os.collection.subscribe((datas) => {
+
+    this.cs.collection.subscribe((datas) => {
       this.collection$.next(datas);
     });
   }
+
   public changeState(item: Client, event) {
-    this.os.changeState(item, event.target.value).subscribe((res) => {
-      // traite erreur
+    this.cs.changeState(item, event.target.value).subscribe((res) => {
       item.state = res.state;
     });
   }
 
-  public delete(item: Client){
-    this.os.delete(item).subscribe((res) => {
+  public delete(item: Client) {
+    this.cs.delete(item).subscribe((res) => {
       // traiter res de l'api;
-      this.os.collection.subscribe((datas) => {
+      this.cs.collection.subscribe((datas) => {
         this.collection$.next(datas);
       });
     });
   }
 
+  public edit(item: Client) {
+    this.router.navigate(['clients', 'edit', item.id]);
+  }
 
+  public loadDetails(item: Client) {
+    this.cs.firstItem$.next(item);
+  }
 }

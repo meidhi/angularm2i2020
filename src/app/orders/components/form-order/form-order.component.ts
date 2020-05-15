@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { StateOrder } from 'src/app/shared/enums/state-order.enum';
 import { Order } from 'src/app/shared/models/order';
@@ -13,7 +13,7 @@ export class FormOrderComponent implements OnInit {
   public States = Object.values(StateOrder);
   @Input() init = new Order();
   public form: FormGroup;
-
+  @Output() formSubmitted: EventEmitter<Order> = new EventEmitter;
 
   constructor(private fb: FormBuilder) { }
 
@@ -33,6 +33,7 @@ export class FormOrderComponent implements OnInit {
 
   onSubmit(){
     console.log(this.form.value);
+    this.formSubmitted.emit(this.form.value);
   }
 
 }

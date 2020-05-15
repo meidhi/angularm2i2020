@@ -6,6 +6,7 @@ export class Client implements ClientI {
   name: "Christophe";
   ca: 12000;
   state= StateClient.ACTIF;
+  comment: string;
 
   constructor(obj?: Partial<Client>) {
 

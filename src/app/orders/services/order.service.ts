@@ -51,5 +51,8 @@ export class OrderService {
     return  this.http.delete<Order>(`${this.urlApi}orders/${item.id}`);
   }
 
+  public add(item: Order): Observable<Order> {
+    return this.http.post<Order>(`${this.urlApi}orders`, item);
+  }
 }
 

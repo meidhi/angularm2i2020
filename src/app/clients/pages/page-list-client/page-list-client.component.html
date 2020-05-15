@@ -2,11 +2,12 @@
 
   <!-- <app-tableau-light [collection]= "collection"></app-tableau-light> -->
   <app-tableau-dark *ngIf="collection$ | async as collection" [headers]="headers">
-    <tr *ngFor="let item of collection">
+    <tr *ngFor="let item of collection" (click)="loadDetails(item)">
       <td>{{ item.name }}</td>
       <td>{{ item.ca | currency:'EUR'}}</td>
       <td [appState]= "item.state">
-        <select (change)="changeState(item, $event)">
+
+        <select (change)="changeState(item, $event)" (click)="$event.stopPropagation()">
           <option *ngFor="let state of states" [value]="state" [selected]="state === item.state">
             {{ state }}
           </option>
@@ -15,15 +16,17 @@
       <td>
 
         <div class="icon-group">
-        <app-icon-trash (click)="delete(item)"></app-icon-trash>
-        <app-icon-edit (click)="delete(item)"></app-icon-edit>
+        <app-icon-trash  (click)="$event.stopPropagation() ; delete(item)"></app-icon-trash>
+        <app-icon-edit  (click)="$event.stopPropagation() ;edit(item)"></app-icon-edit>
 
       </div>
     </tr>
   </app-tableau-dark>
 
-  <app-button text="Add order" route="add"></app-button>
-  <app-button text="google" href="http://www.google.fr"></app-button>
-  <app-button text="action" action="true"></app-button>
+  <app-button text="Add client" route="add"></app-button>
+  <!-- <app-button text="google" href="http://www.google.fr"></app-button>
+  <app-button text="action" action="true"></app-button> -->
 
+  <app-nav-inline ngi [links]="navLink"></app-nav-inline>
+  <router-outlet></router-outlet>
 </app-template-a>
