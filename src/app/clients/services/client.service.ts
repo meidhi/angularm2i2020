@@ -44,7 +44,13 @@ export class ClientService {
   update(item: Client): Observable<Client>{
     return this.http.put<Client>(`${this.urlApi}clients/${item.id}`, item);
   }
+
   delete(item: Client):Observable<Client>{
     return  this.http.delete<Client>(`${this.urlApi}clients/${item.id}`);
   }
+
+public add(item: Client): Observable<Client>{
+  return  this.http.post<Client>(`${this.urlApi}clients`, item);
+
+}
 }
